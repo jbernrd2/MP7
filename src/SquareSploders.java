@@ -1,4 +1,7 @@
+import java.awt.event.KeyEvent;
 import java.io.File;
+
+import edu.illinois.cs.cs125.lib.zen.Zen;
 
 public class SquareSploders {
 
@@ -54,6 +57,13 @@ public class SquareSploders {
             }
             if (count1 % 20 == 0) {
                 s2 = true;
+            }
+            if (Zen.isVirtualKeyPressed(KeyEvent.VK_R) && s2 == true) {
+                xj = 5; yj = 5;
+                for (j = 0; j < targetArray.length; j++) {
+                    targetArray[j] = new Target(xj , yj, 20, 20);
+                    xj = xj + 40;
+                }
             }
 
             int i;
