@@ -1,20 +1,19 @@
-import java.awt.event.KeyEvent;
 import java.io.File;
-
+import java.awt.event.KeyEvent;
 import edu.illinois.cs.cs125.lib.zen.Zen;
 
 public class SquareSploders {
 
-	public static void main(final String[] unused) {
+    public static void main(final String[] unused) {
         Zen.create(700, 1000, "stretch");
         int x = 100, y = 900; int[] a = null; Target[] targetArray = new Target[5];
 
-        boolean s1 = true; boolean s2 = true; Laser laser1 = null; Target target = null;
+        boolean s1 = false; boolean s2 = true; Laser laser1 = null; Target target = null;
         Laser laser2 = null; Laser laser3 = null; Laser[] laserray = new Laser[5];
         int count = 0; Laser activeLaser = new Laser(); laser1 = activeLaser; int count1 = 0;
 
         ClassLoader classLoader = SpriteMoveFlipBuffer.class.getClassLoader();
-        File spriteFile = new File(classLoader.getResource("sprite1.gif").getFile()); int xj = 5; int yj = 5;
+        File spriteFile = new File(classLoader.getResource("sprite1.gif").getFile()); int xj = 225; int yj = 500;
 
         int j; for (j = 0; j < targetArray.length; j++) {
             targetArray[j] = new Target(xj , yj, 20, 20);
@@ -23,10 +22,6 @@ public class SquareSploders {
         }
 
         while (Zen.isRunning()) {
-            if (s1 == true) {
-                target = new Target(350, 100, 20, 20);
-                s1 = false;
-            }
             for (j = 0; j < targetArray.length; j++) {
                 if (targetArray[j] != null) {
                     a = targetArray[j].getHitBox();
@@ -59,7 +54,7 @@ public class SquareSploders {
                 s2 = true;
             }
             if (Zen.isVirtualKeyPressed(KeyEvent.VK_R) && s2 == true) {
-                xj = 5; yj = 5;
+                xj = 225; yj = 500;
                 for (j = 0; j < targetArray.length; j++) {
                     targetArray[j] = new Target(xj , yj, 20, 20);
                     xj = xj + 40;
@@ -83,7 +78,16 @@ public class SquareSploders {
                     }
                 }
             }
-            count1++;
+            count1++; s1 = false;
+            for (j = 0; j < targetArray.length; j++) {
+                if (targetArray[j] != null) {
+                    s1 = true;
+                }
+            }
+            if (s1 == false) {
+                Zen.drawText("GAME OVER", 300, 500);
+                Zen.drawText("Press R to restart", 289, 550);
+            }
             Zen.drawImage(spriteFile.getAbsolutePath(), x, y);
             Zen.flipBuffer();
             Zen.sleep(8);

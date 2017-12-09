@@ -1,7 +1,6 @@
 
 public class Laser {
-	
-	private int x; private int y; public int v = -10;
+    private int x; private int y; public int v = -10;
 
     public Laser() {
     }
