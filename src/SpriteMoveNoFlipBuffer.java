@@ -1,7 +1,6 @@
 import java.io.File;
 
 import edu.illinois.cs.cs125.lib.zen.Zen;
-
 /**
  * Example program written using Zen Graphics.
  *
