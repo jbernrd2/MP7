@@ -108,7 +108,8 @@ public class SquareSploders {
             }
             if (s1 == false) {
                 Zen.drawText("GAME OVER", 300, 500);
-                Zen.drawText("Press R to restart", 289, 550);
+                Zen.drawText("TRY AGAIN?" 289, 550)
+                Zen.drawText("Press R to restart", 269, 550);
             }
             Zen.drawImage(spriteFile.getAbsolutePath(), x, y);
             Zen.flipBuffer();
