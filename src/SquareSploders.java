@@ -108,7 +108,7 @@ public class SquareSploders {
             }
             if (s1 == false) {
                 Zen.drawText("GAME OVER", 300, 500);
-                Zen.drawText("IS THIS THE END?" 289, 550)
+                Zen.drawText("IS THIS REALLY THE END?" 289, 550)
                 Zen.drawText("Press R to restart", 269, 550);
             }
             Zen.drawImage(spriteFile.getAbsolutePath(), x, y);
